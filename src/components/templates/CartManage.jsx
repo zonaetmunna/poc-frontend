@@ -9,7 +9,7 @@ import {
 } from '@heroicons/react/20/solid';
 import { useState } from 'react';
 
-import { useCart } from '../../contexts/CartContextProvider';
+import { useCart } from '../../hooks/useCart';
 import Button from '../atoms/Button';
 import Hr from '../atoms/Hr';
 import AddCustomer from '../organishms/AddCustomer';

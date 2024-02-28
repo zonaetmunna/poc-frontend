@@ -1,22 +1,34 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 export const CartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
-	const [cartItems, setCartItems] = useState([]);
+	const [cartItems, setCartItems] = useState(
+		localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
+	);
+
+	// Load cart items from local storage on component mount
+	useEffect(() => {
+		const storedCartItems = localStorage.getItem('cartItems');
+		if (storedCartItems) {
+			setCartItems(JSON.parse(storedCartItems));
+		}
+	}, []);
+
+	// Update local storage whenever cart items change
+	useEffect(() => {
+		localStorage.setItem('cartItems', JSON.stringify(cartItems));
+	}, [cartItems]);
 
 	const addToCart = (product) => {
-		// Check if the product is already in the cart
 		const existingProductIndex = cartItems.findIndex((item) => item.id === product.id);
 
 		if (existingProductIndex !== -1) {
-			// If the product is already in the cart, update its quantity
 			const updatedCart = cartItems.map((item, index) =>
 				index === existingProductIndex ? { ...item, quantity: item.quantity + 1 } : item,
 			);
 			setCartItems(updatedCart);
 		} else {
-			// If the product is not in the cart, add it with a quantity of 1
 			setCartItems([...cartItems, { ...product, quantity: 1 }]);
 		}
 	};
@@ -45,7 +57,6 @@ const CartContextProvider = ({ children }) => {
 	};
 
 	const calculateTotal = () => {
-		// Add tax, shipping, discounts, etc., if applicable
 		return calculateSubtotal();
 	};
 
@@ -67,7 +78,3 @@ const CartContextProvider = ({ children }) => {
 };
 
 export default CartContextProvider;
-
-export const useCart = () => {
-	return useContext(CartContext);
-};

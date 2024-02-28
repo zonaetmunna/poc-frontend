@@ -2,7 +2,7 @@ import { EllipsisVerticalIcon, MagnifyingGlassIcon } from '@heroicons/react/20/s
 import { useState } from 'react';
 
 import { products } from '../../constant/product.constant';
-import { useCart } from '../../contexts/CartContextProvider';
+import { useCart } from '../../hooks/useCart';
 import Button from '../atoms/Button';
 import CategorySelectModal from '../organishms/CategorySelectModal';
 
