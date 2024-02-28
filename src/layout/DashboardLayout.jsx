@@ -10,7 +10,7 @@ const DashboardLayout = () => {
 	const { isSidebarVisible, toggleSidebar } = useSidebar();
 
 	return (
-		<div className="flex relative bg-white min-h-screen">
+		<div className="flex relative bg-white lg:min-h-screen ">
 			<Sidebar toggleSidebar={toggleSidebar} isSidebarVisible={isSidebarVisible} activeLinkLabel={location.pathname} />
 
 			<main
@@ -18,7 +18,7 @@ const DashboardLayout = () => {
 					isDarkMode ? 'bg-grayBackground' : 'bg-darkBg'
 				} bg-grayBackground transition-all duration-300 ease-in-out`}
 			>
-				<div className={`min-h-screen ${isDarkMode ? 'bg-white' : 'bg-darkBg'}`}>
+				<div className={`${isDarkMode ? 'bg-white' : 'bg-darkBg'}`}>
 					<Outlet />
 				</div>
 			</main>

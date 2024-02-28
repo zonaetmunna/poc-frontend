@@ -38,7 +38,7 @@ const Pos = () => {
 	console.log(products2);
 
 	return (
-		<div className="w-full bg-white">
+		<div className="w-full lg:min-h-screen bg-white border-2 border-red-800">
 			<div className="flex xs:flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row w-full">
 				<div className="xs:w-full sm:w-full md:w-1/2 lg:w-1/2 flex-col lg:px-10">
 					<nav className={`py-5 w-full bg-white`}>

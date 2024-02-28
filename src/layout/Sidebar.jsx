@@ -31,7 +31,7 @@ const Sidebar = ({ toggleSidebar, activeLinkLabel, isSidebarVisible }) => {
 
 	return (
 		<div
-			className={`w-96 min-h-screen ${isDarkMode ? 'bg-white' : 'bg-darkBg'}
+			className={`w-96 min-h-screen bg-white 
            ${isSidebarVisible ? 'fixed left-0 top-0 z-50 inset-0  overflow-auto scrollbar-hide transition-all duration-300 ease-in-out' : 'hidden'}`}
 		>
 			<button
