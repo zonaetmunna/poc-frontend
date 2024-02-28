@@ -15,13 +15,13 @@ const Checkout = ({ handleCloseCheckout }) => {
 	};
 
 	return (
-		<div className="flex flex-col border border-gray-300 bg-[#F4F6F8] py-5 px-5 ">
+		<div className="flex min-h-screen flex-col border border-gray-300 bg-[#F4F6F8] py-5 px-5 ">
 			<div className="flex justify-between items-center border  border-gray-300 bg-[#F8F9FB] px-10 py-10 rounded-lg">
 				<p className="text-lg text-[#637381]">Order Amount</p>
 				<p className="text-dark font-bold text-3xl">50005</p>
 			</div>
 
-			<div className="flex min-h-screen mt-5 border bg-white border-gray-300 w-full">
+			<div className="flex  mt-5 border bg-white border-gray-300 w-full">
 				<div className="w-1/3  flex flex-col pt-5 font-medium  border-r border-gray-300">
 					<Button
 						onClick={() => handleButtonClick('Cash')}

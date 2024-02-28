@@ -1,21 +1,33 @@
 import { Cog6ToothIcon, MapPinIcon, Squares2X2Icon, WalletIcon, XMarkIcon } from '@heroicons/react/20/solid';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import Button from '../components/atoms/Button';
 import useTheme from '../hooks/useTheme';
 
 const SidebarLink = ({ to, icon, label, toggleSidebar }) => {
 	const location = useLocation();
+	// Define links to disable
+	const disabledLinks = ['/dashboard', '/pos-invoice'];
+
+	// Check if the link is disabled
+	const isDisabled = disabledLinks.includes(to);
+
+	// Handle click event
+	const handleClick = () => {
+		if (!isDisabled) {
+			toggleSidebar();
+		}
+	};
 
 	return (
-		<Link to={to} onClick={toggleSidebar}>
+		<div onClick={handleClick} className="cursor-pointer">
 			<div
-				className={`flex items-center mb-4 py-2 px-5 rounded-lg cursor-pointer font-medium text-xl ${location.pathname === to ? 'bg-[#E7E9F6] text-[#5E6CC5]' : ''}`}
+				className={`flex items-center mb-4 py-2 px-5 rounded-lg font-medium text-xl ${location.pathname === to ? 'bg-[#E7E9F6] text-[#5E6CC5]' : ''} ${isDisabled ? 'opacity-50 pointer-events-none' : ''}`}
 			>
 				{icon}
 				<span className="ml-3">{label}</span>
 			</div>
-		</Link>
+		</div>
 	);
 };
 
