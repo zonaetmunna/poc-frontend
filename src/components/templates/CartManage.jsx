@@ -26,7 +26,7 @@ const CartManage = ({ handlePayClick }) => {
 
 	return (
 		<>
-			<div className="bg-white px-10">
+			<div className="bg-white">
 				<div
 					className="flex justify-between items-center p-4 bg-[#E7E9F6] text-[#5E6CC5] font-semibold rounded cursor-pointer"
 					onClick={toggleModal}

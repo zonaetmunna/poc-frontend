@@ -2,8 +2,8 @@ import { ChevronLeftIcon } from '@heroicons/react/20/solid';
 
 const AddCustomer = ({ toggleModal }) => {
 	return (
-		<div className={`fixed inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 `}>
-			<div className="bg-white p-8 rounded-lg w-1/3">
+		<div className={`fixed inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 z-50 `}>
+			<div className="bg-white p-8 rounded-lg w-1/4">
 				<div className="flex items-center  mb-4">
 					<span onClick={toggleModal} className="cursor-pointer">
 						<ChevronLeftIcon className="h-6 w-6 text-dark" />

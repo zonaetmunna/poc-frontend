@@ -18,7 +18,7 @@ const DashboardLayout = () => {
 					isDarkMode ? 'bg-grayBackground' : 'bg-darkBg'
 				} bg-grayBackground transition-all duration-300 ease-in-out`}
 			>
-				<div className={`xs:px-4 lg:px-10 min-h-screen ${isDarkMode ? 'bg-white' : 'bg-darkBg'}`}>
+				<div className={`min-h-screen ${isDarkMode ? 'bg-white' : 'bg-darkBg'}`}>
 					<Outlet />
 				</div>
 			</main>

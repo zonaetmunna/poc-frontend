@@ -15,9 +15,9 @@ const SettingPage = () => {
 
 	return (
 		<div
-			className={`fixed inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 ${isModalOpen ? 'block' : 'hidden'}`}
+			className={`fixed inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 z-50 ${isModalOpen ? 'block' : 'hidden'}`}
 		>
-			<div className="bg-white p-8 rounded-lg w-1/3  ">
+			<div className="bg-white p-8 rounded-lg w-1/4 flex flex-col justify-center items-center">
 				<div className="flex items-center mb-4">
 					<span onClick={toggleModal} className="cursor-pointer">
 						<ArrowLeftCircleIcon className="h-6 w-6 text-dark" />
@@ -25,30 +25,30 @@ const SettingPage = () => {
 					<h1 className="text-3xl text-center ml-4">Setting</h1>
 				</div>
 
-				<div className="mb-4">
+				<div className="mb-4 text-center">
 					<Button
 						type="button"
 						onClick={toggleModal}
-						className={`px-5 py-5 ${isModalOpen ? 'bg-gray-500 text-white font-semibold border-b-2 border-gray-600' : 'bg-gray-200 font-normal'}`}
+						className={`px-8 py-4 ${isModalOpen ? 'bg-[#EBF1FB] text-[#454F5B] font-semibold border-b-2 border-gray-600' : 'bg-gray-200 font-normal'}`}
 					>
 						Tax on
 					</Button>
-					<button type="button" onClick={toggleModal} className={`${isModalOpen ? '' : 'bg-blue-500 text-white'}`}>
+					<button type="button" onClick={toggleModal} className={`${isModalOpen ? '' : 'bg-[#EBF1FB] text-[#454F5B]'}`}>
 						Tax Type
 					</button>
 				</div>
 
 				{/* Modal Content */}
-				<div>
-					<div className="flex items-center mb-4 space-x-3">
+				<div className="w-full bg-white  rounded py-5">
+					<div className="flex items-center mb-4 space-x-3 text-center">
 						<input type="radio" name="taxType" />
-						<label className="mr-4">After Discount</label>
+						<label className="mr-4 text-[#454F5B] text-lg font-medium">After Discount</label>
 					</div>
 					<div className="flex items-center space-x-3">
 						<input type="radio" name="taxType" />
-						<label className="mr-4">Before Discount</label>
+						<label className="mr-4 text-[#454F5B] text-lg font-medium">Before Discount</label>
 					</div>
-					<button onClick={toggleModal} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md">
+					<button onClick={toggleModal} className="mt-4 w-full bg-[#3674D9] text-white px-4 py-2 rounded-md">
 						Update
 					</button>
 				</div>

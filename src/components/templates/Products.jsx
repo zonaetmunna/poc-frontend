@@ -33,7 +33,7 @@ const Products = () => {
 	);
 
 	return (
-		<div className="border border-gray-300 rounded-md min-h-screen">
+		<div className="border border-gray-300 rounded-md xs:mt-10 sm:mt-10 md:mt-0 lg:mt-0 xl:mt-0">
 			<div className="relative bg-white w-full px-6 py-3 ">
 				<span className="absolute left-5 top-6 text-gray-400">
 					<MagnifyingGlassIcon className="size-6" />
@@ -78,7 +78,7 @@ const Products = () => {
 						type="button"
 						onClick={() => handleCategorySelect('Home Life style')}
 						className={`flex justify-center flex-1 items-center space-x-1 font-semibold text-lg bg-white  px-3 py-2 rounded-md border 
-                            ${selectedCategory === 'Home Life style' ? 'border-[#B1C9F0] text-[#A7C2EE]' : ' border-[#6D7C89] text-[#A4AEB6]'}`}
+                            ${selectedCategory === 'Home life style' ? 'border-[#B1C9F0] text-[#A7C2EE]' : ' border-[#6D7C89] text-[#A4AEB6]'}`}
 					>
 						Home Life style
 					</Button>
@@ -106,7 +106,7 @@ const Products = () => {
 					</Button>
 				</div>
 
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5  gap-4 mt-10">
+				<div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5  gap-4 mt-10">
 					{filteredProducts?.map((product) => (
 						<div
 							key={product.id}
@@ -125,7 +125,11 @@ const Products = () => {
 			</div>
 
 			{isFilterModalOpen && (
-				<CategorySelectModal toggleFilterModal={toggleFilterModal} handleCategorySelect={handleCategorySelect} />
+				<CategorySelectModal
+					setSelectedCategory={setSelectedCategory}
+					toggleFilterModal={toggleFilterModal}
+					handleCategorySelect={handleCategorySelect}
+				/>
 			)}
 		</div>
 	);

@@ -41,9 +41,9 @@ const Pos = () => {
 
 	return (
 		<div className="w-full bg-white">
-			<div className="flex w-full">
-				<div className="w-1/2 flex-col">
-					<nav className={`py-5  w-full lg:px-10 ${isDarkMode ? 'bg-white' : 'bg-darkBg'}`}>
+			<div className="flex xs:flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row w-full">
+				<div className="xs:w-full sm:w-full md:w-1/2 lg:w-1/2 flex-col lg:px-10">
+					<nav className={`py-5 w-full  ${isDarkMode ? 'bg-white' : 'bg-darkBg'}`}>
 						<div className="flex items-center justify-between gap-3">
 							<Button type="button" className="" onClick={toggleSidebar}>
 								<Bars3Icon className={`w-8 h-8  ${isDarkMode ? 'text-[#4E4E4E]' : 'text-white'}`} />
@@ -92,7 +92,7 @@ const Pos = () => {
 					</div>
 				</div>
 
-				<div className="w-1/2">
+				<div className="xs:w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2">
 					{showCheckout ? <Checkout handleCloseCheckout={handleCloseCheckout} /> : <Products />}
 				</div>
 			</div>

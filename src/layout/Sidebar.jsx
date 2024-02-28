@@ -25,54 +25,51 @@ const Sidebar = ({ toggleSidebar, activeLinkLabel, isSidebarVisible }) => {
 	const links = [
 		{ to: '/dashboard', icon: <Squares2X2Icon className="h-6 w-6" />, label: 'Dashboard' },
 		{ to: '/poc', icon: <MapPinIcon className="h-6 w-6" />, label: 'Locations' },
-		{ to: '/pos-invoices', icon: <WalletIcon className="h-5 w-5" />, label: 'POS Invoice' },
+		{ to: '/pos-invoice', icon: <WalletIcon className="h-5 w-5" />, label: 'POS Invoice' },
 		{ to: '/setting', icon: <Cog6ToothIcon className="h-5 w-5" />, label: 'Settings' },
 	];
 
 	return (
-		<div>
-			<div
-				className={`w-96 min-h-screen ${isDarkMode ? 'bg-white' : 'bg-darkBg'}
+		<div
+			className={`w-96 min-h-screen ${isDarkMode ? 'bg-white' : 'bg-darkBg'}
            ${isSidebarVisible ? 'fixed left-0 top-0 z-50 inset-0  overflow-auto scrollbar-hide transition-all duration-300 ease-in-out' : 'hidden'}`}
+		>
+			<button
+				onClick={toggleSidebar}
+				className={`fixed top-4 left-96 z-10 text-darkBg focus:outline-none ${isSidebarVisible ? 'block' : 'hide'}`}
 			>
-				<button
-					onClick={toggleSidebar}
-					className={`fixed top-4 left-96 z-10 text-darkBg focus:outline-none ${isSidebarVisible ? 'block' : 'hide'}`}
-				>
-					<XMarkIcon className="h-10 w-10 text-white" />
-				</button>
+				<XMarkIcon className="h-10 w-10 text-white" />
+			</button>
 
-				<div className="">
-					<div className="bg-[#EFEFEF]">
-						<div className="pb-16  pt-10 text-center">
-							<h1 className="text-3xl font-bold">
-								<span className="text-dark">go</span>
-								<span className="text-primary">B</span>
-								<span className="text-dark">illing</span>
-							</h1>
-						</div>
-
-						<div className="px-5 py-3 text-[#637381]">
-							<p className="font-bold mb-2">Location:</p>
-							<p className="font-semibold mb-2 text-2xl">Los Angeles, California</p>
-						</div>
+			<div className="">
+				<div className="bg-[#EFEFEF]">
+					<div className="pb-16  pt-10 text-center">
+						<h1 className="text-3xl font-bold">
+							<span className="text-dark">go</span>
+							<span className="text-primary">B</span>
+							<span className="text-dark">illing</span>
+						</h1>
 					</div>
 
-					<div className="bg-white py-5 flex flex-col justify-between h-full">
-						<div>
-							{links.map((link, index) => (
-								<SidebarLink key={index} {...link} activeLinkLabel={activeLinkLabel} toggleSidebar={toggleSidebar} />
-							))}
-						</div>
-						<div>
-							<div
-								className={`mb-4 ${isDarkMode ? 'border border-gray-300' : 'border border-primary'} rounded-lg px-12 py-3`}
-							>
-								<Button type="button" className="text-[#637381] text-xl w-full hover:text-gray-500 text-center">
-									Logout
-								</Button>
-							</div>
-						</div>
+					<div className="px-5 py-3 text-[#637381]">
+						<p className="font-bold mb-2">Location:</p>
+						<p className="font-semibold mb-2 text-2xl">Los Angeles, California</p>
+					</div>
+				</div>
+
+				<div className="bg-white pt-5 flex flex-col justify-between ">
+					<div className="pb-5">
+						{links.map((link, index) => (
+							<SidebarLink key={index} {...link} activeLinkLabel={activeLinkLabel} toggleSidebar={toggleSidebar} />
+						))}
+					</div>
+
+					<div
+						className={`mt-40 ${isDarkMode ? 'border border-gray-300' : 'border border-primary'} rounded-lg px-12 py-3`}
+					>
+						<Button type="button" className="text-[#637381] text-xl w-full hover:text-gray-500 text-center">
+							Logout
+						</Button>
 					</div>
 				</div>
 			</div>
