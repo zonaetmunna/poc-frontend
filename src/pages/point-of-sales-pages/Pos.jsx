@@ -8,13 +8,11 @@ import Checkout from '../../components/templates/Checkout';
 import Products from '../../components/templates/Products';
 import { products } from '../../constant/product.constant';
 import { useSidebar } from '../../hooks/useSidebar';
-import useTheme from '../../hooks/useTheme';
 
 const Pos = () => {
 	const [products2, setProducts] = useState([]);
 	const [showCheckout, setShowCheckout] = useState(false);
 	const { toggleSidebar } = useSidebar();
-	const { isDarkMode } = useTheme();
 
 	const handlePayClick = () => {
 		setShowCheckout(true);
@@ -43,10 +41,10 @@ const Pos = () => {
 		<div className="w-full bg-white">
 			<div className="flex xs:flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row w-full">
 				<div className="xs:w-full sm:w-full md:w-1/2 lg:w-1/2 flex-col lg:px-10">
-					<nav className={`py-5 w-full  ${isDarkMode ? 'bg-white' : 'bg-darkBg'}`}>
+					<nav className={`py-5 w-full bg-white`}>
 						<div className="flex items-center justify-between gap-3">
 							<Button type="button" className="" onClick={toggleSidebar}>
-								<Bars3Icon className={`w-8 h-8  ${isDarkMode ? 'text-[#4E4E4E]' : 'text-white'}`} />
+								<Bars3Icon className={`w-8 h-8  text-[#4E4E4E]`} />
 							</Button>
 
 							<Button
