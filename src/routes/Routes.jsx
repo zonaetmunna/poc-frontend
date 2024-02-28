@@ -14,7 +14,7 @@ export const routes = createBrowserRouter([
 		children: [
 			{
 				path: '/',
-				element: <Navigate to="/dashboard" replace />,
+				element: <Navigate to="/poc" replace />,
 			},
 			{
 				path: 'dashboard',

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 export const CartContext = createContext();
 
@@ -6,7 +6,19 @@ const CartContextProvider = ({ children }) => {
 	const [cartItems, setCartItems] = useState([]);
 
 	const addToCart = (product) => {
-		setCartItems([...cartItems, { ...product, quantity: 1 }]);
+		// Check if the product is already in the cart
+		const existingProductIndex = cartItems.findIndex((item) => item.id === product.id);
+
+		if (existingProductIndex !== -1) {
+			// If the product is already in the cart, update its quantity
+			const updatedCart = cartItems.map((item, index) =>
+				index === existingProductIndex ? { ...item, quantity: item.quantity + 1 } : item,
+			);
+			setCartItems(updatedCart);
+		} else {
+			// If the product is not in the cart, add it with a quantity of 1
+			setCartItems([...cartItems, { ...product, quantity: 1 }]);
+		}
 	};
 
 	const removeFromCart = (productId) => {

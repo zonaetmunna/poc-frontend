@@ -51,7 +51,7 @@ const CategorySelectModal = ({ handleCategorySelect, toggleFilterModal }) => {
 					{categories.map((category, index) => (
 						<Button
 							key={index}
-							className="cursor-pointer hover:bg-gray-100 p-3 rounded border border-blue-400 text-gray-400 m-2"
+							className="cursor-pointer font-semibold text-lg bg-white text-[#A4AEB6] px-3 py-2 rounded-md border border-[#6D7C89] m-2"
 							onClick={() => handleCategorySelect(category)}
 						>
 							{category.name}

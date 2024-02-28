@@ -1,13 +1,16 @@
 import { ArrowLeftCircleIcon } from '@heroicons/react/20/solid';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Button from '../../components/atoms/Button';
 
 const SettingPage = () => {
+	const navigate = useNavigate();
 	const [isModalOpen, setIsModalOpen] = useState(true); // Set initial state to true for default open
 
 	const toggleModal = () => {
 		setIsModalOpen(!isModalOpen);
+		navigate('/poc');
 	};
 
 	return (

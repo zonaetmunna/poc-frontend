@@ -1,4 +1,4 @@
-import { BanknotesIcon, CreditCardIcon, UserIcon } from '@heroicons/react/20/solid';
+import { BanknotesIcon, CreditCardIcon, UserIcon, XCircleIcon } from '@heroicons/react/20/solid';
 import { useState } from 'react';
 
 import Button from '../atoms/Button';
@@ -8,24 +8,24 @@ import Checque from '../organishms/Checque';
 import OnAccount from '../organishms/OnAccount';
 
 const Checkout = ({ handleCloseCheckout }) => {
-	const [selectedComponent, setSelectedComponent] = useState(null);
+	const [selectedComponent, setSelectedComponent] = useState('Card');
 
 	const handleButtonClick = (component) => {
 		setSelectedComponent(component);
 	};
 
 	return (
-		<div className="flex flex-col border border-gray-300 bg-gray-300 p-5 min-h-screen">
-			<div className="flex justify-between border border-gray-300 bg-gray-200 px-10 py-10 rounded-lg">
-				<p className="text-base text-gray-400">Order Amount</p>
+		<div className="flex flex-col border border-gray-300 bg-[#F4F6F8] py-5 px-5 ">
+			<div className="flex justify-between items-center border  border-gray-300 bg-[#F8F9FB] px-10 py-10 rounded-lg">
+				<p className="text-lg text-[#637381]">Order Amount</p>
 				<p className="text-dark font-bold text-3xl">50005</p>
 			</div>
 
 			<div className="flex min-h-screen mt-5 border bg-white border-gray-300 w-full">
-				<div className="w-1/3  flex flex-col pt-5  border-r border-gray-300">
+				<div className="w-1/3  flex flex-col pt-5 font-medium  border-r border-gray-300">
 					<Button
 						onClick={() => handleButtonClick('Cash')}
-						className={`p-2 flex justify-start items-center rounded ${selectedComponent === 'Cash' ? 'bg-blue-200 text-blue-800' : 'bg-white text-darkBg'}`}
+						className={`py-4 px-6 flex justify-start items-center rounded ${selectedComponent === 'Cash' ? 'bg-[#E7E9F6] text-[#5E6CC5]' : 'bg-white text-[#637381]'}`}
 					>
 						<span className="mr-4">
 							<BanknotesIcon className="w-6 h-6" />
@@ -34,7 +34,7 @@ const Checkout = ({ handleCloseCheckout }) => {
 					</Button>
 					<Button
 						onClick={() => handleButtonClick('Card')}
-						className={`p-2 flex justify-start items-center rounded ${selectedComponent === 'Card' ? 'bg-blue-200 text-blue-800' : 'bg-white text-darkBg'}`}
+						className={`py-4 px-6 flex justify-start items-center rounded ${selectedComponent === 'Card' ? 'bg-[#E7E9F6] text-[#5E6CC5]' : 'bg-white text-[#637381]'}`}
 					>
 						<span className="mr-4">
 							<CreditCardIcon className="w-6 h-6" />
@@ -43,7 +43,7 @@ const Checkout = ({ handleCloseCheckout }) => {
 					</Button>
 					<Button
 						onClick={() => handleButtonClick('On Account')}
-						className={`p-2 flex justify-start items-center rounded ${selectedComponent === 'On Account' ? 'bg-blue-200 text-blue-800' : 'bg-white text-darkBg'}`}
+						className={`py-4 px-6 flex justify-start items-center rounded ${selectedComponent === 'On Account' ? 'bg-[#E7E9F6] text-[#5E6CC5]' : 'bg-white text-[#637381]'}`}
 					>
 						<span className="mr-4">
 							<UserIcon className="w-6 h-6" />
@@ -52,7 +52,7 @@ const Checkout = ({ handleCloseCheckout }) => {
 					</Button>
 					<Button
 						onClick={() => handleButtonClick('Cheque')}
-						className={`p-2 flex justify-start items-center rounded ${selectedComponent === 'Cheque' ? 'bg-blue-200 text-blue-800' : 'bg-white text-darkBg'}`}
+						className={`py-4 px-6 flex justify-start items-center rounded ${selectedComponent === 'Cheque' ? 'bg-[#E7E9F6] text-[#5E6CC5]' : 'bg-white text-[#637381]'}`}
 					>
 						<span className="mr-4">
 							<CreditCardIcon className="w-6 h-6" />
@@ -69,10 +69,17 @@ const Checkout = ({ handleCloseCheckout }) => {
 						{selectedComponent === 'Cheque' && <Checque />}
 					</div>
 
-					<div>
+					<div className="flex justify-center pb-10">
 						<div className="flex gap-5">
-							<Button onClick={handleCloseCheckout} className="bg-gray-400 rounded text-red-500 px-5 py-3">
-								cancel
+							<Button
+								onClick={handleCloseCheckout}
+								type="button"
+								className="bg-[#E1EAF9] text-[#E55C57] px-5 py-3 rounded-md text-2xl font-medium flex items-center gap-3"
+							>
+								<span>
+									<XCircleIcon className="w-7 h-7" />
+								</span>{' '}
+								<span>cancel</span>
 							</Button>
 							<Button className="bg-blue-700 text-white font-semibold text-3xl px-5 py-3 rounded">
 								Complete Payment
