@@ -10,7 +10,7 @@ const DashboardLayout = () => {
 	const { isSidebarVisible, toggleSidebar } = useSidebar();
 
 	return (
-		<div className="flex relative bg-white">
+		<div className="flex relative bg-white min-h-screen">
 			<Sidebar toggleSidebar={toggleSidebar} isSidebarVisible={isSidebarVisible} activeLinkLabel={location.pathname} />
 
 			<main
